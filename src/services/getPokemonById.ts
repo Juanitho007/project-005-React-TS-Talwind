@@ -23,6 +23,7 @@ export const getPokemonById = async (id: number):Promise<PokemonData> => {
       ),
       image1: data.sprites.other.home.front_default,
       image2: data.sprites.other.dream_world.front_default,
+      moves: data.moves.map((mov: { move: { name: string }; })=> (mov.move.name))
     };
     return pokemon;
   } catch (error) {

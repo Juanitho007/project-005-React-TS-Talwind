@@ -29,7 +29,7 @@ const Pokedex = () => {
           </p>
 
           <button
-            className="p-4 rounded-full bg-red-500/80 text-white"
+            className="p-4 rounded-full bg-red-500/80 text-white z-50"
             type="button"
             onClick={handleClick}
           >

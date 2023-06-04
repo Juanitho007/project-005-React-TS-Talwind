@@ -48,12 +48,13 @@ const FiltersForm = ({ nameInitial, typeInitial }: FiltersFormProps) => {
             value={searchType}
             onChange={handleChangeType}
           >
-            <option value="">All</option>
-            {types && types.map((type: TypesProps) => (
-              <option key={type.id} value={type.id}>
-                {type.name[0].toUpperCase() + type.name.slice(1)}
-              </option>
-            ))}
+            <option value="">All types</option>
+            {types &&
+              types.map((type: TypesProps) => (
+                <option key={type.id} value={type.id}>
+                  {type.name[0].toUpperCase() + type.name.slice(1)}
+                </option>
+              ))}
           </select>
           <button type="submit" className="bg-white/90 p-2 font-bold">
             <i className="bx bx-search-alt bx-flashing text-2xl"></i>

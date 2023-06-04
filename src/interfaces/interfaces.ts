@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface ResponseData {
-  map(arg0: (pokemon: { id: string; }) => number): pagesComponentProps;
+  map(arg0: (pokemon: { id: string }) => number): pagesComponentProps;
   filter(arg0: (pokemon: { name: string }) => void): ResponseData;
   name: string;
   url: string;
@@ -20,6 +20,10 @@ export interface PokemonData {
   }[];
   image1: string | null;
   image2: string | null;
+  moves: {
+    map(arg0: (move: string) => import("react/jsx-runtime").JSX.Element): import("react").ReactNode;
+    move: string[];
+  };
 }
 export interface UserNameContextType {
   userName: string;

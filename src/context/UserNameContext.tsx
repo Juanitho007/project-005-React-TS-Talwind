@@ -13,9 +13,10 @@ export const UserNameContext = createContext<UserNameContextType>({
 });
 
 export const UserNameProvider = ({ children }: UserNameProviderProps) => {
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
   const saveUserName = (name: string) => {
     setUserName(name);
+    localStorage.setItem("userName", name);
   };
   const removeUserName = () => {
     setUserName("");

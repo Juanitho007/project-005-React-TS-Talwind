@@ -1,8 +1,14 @@
-import {useEffect, useState } from "react";
+import {
+  JSXElementConstructor,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useEffect,
+  useState,
+} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getPokemonById } from "../services/getPokemonById";
 import { PokemonData } from "src/interfaces/interfaces";
-
 
 const PokemonsDetail = () => {
   const { pokemonId } = useParams();
@@ -20,19 +26,28 @@ const PokemonsDetail = () => {
   }, [pokemonId]);
 
   if (!pokemon) return <div className="loader"></div>;
-  const { name, height, weight, types, stats, abilities, image1, image2 } =
-    pokemon;
+  const {
+    name,
+    height,
+    weight,
+    types,
+    stats,
+    abilities,
+    image1,
+    image2,
+    moves,
+  } = pokemon;
   return (
     <>
       <button
-        className="p-4 rounded-full bg-red-500/80 text-white fixed right-3 border-2 top-3 border-white"
+        className="p-4 rounded-full bg-red-500/80 text-white fixed right-3 border-2 top-3 border-white z-50"
         type="button"
         onClick={handleClick}
       >
-        <i className="bx bx-home bx-tada text-3xl font-bold"></i>
+        <i className="bx bx-home bx-tada text-3xl font-bold "></i>
       </button>
       <div
-        className={`xs:w-[420px] w-full h-full bg-white/30 rounded-[52px] flex flex-col items-center justify-between p-3 border-4 saturate-[150%]`}
+        className={` max-w-[1024px] w-full h-full bg-white/30 rounded-[52px] flex flex-col items-center justify-between p-3 saturate-[150%]`}
       >
         <img
           src={
@@ -43,12 +58,12 @@ const PokemonsDetail = () => {
               : image2
           }
           alt={name}
-          className="w-[200px] h-[200px] object-center"
+          className="w-[200px] h-[200px] scale-[135%] object-center overflow-hidden"
         />
         <h2 className="w-full text-start border-b-4 border-black text-xl font-semibold">
           {name}
         </h2>
-        <ul className="flex justify-between  bg-white/20 w-full rounded-xl p-1">
+        <ul className="flex justify-around  bg-white/20 w-full rounded-xl p-1">
           <li>
             <b>Weight:</b> {weight}cm
           </li>
@@ -80,7 +95,7 @@ const PokemonsDetail = () => {
                 .slice(1)}
           </li>
         </ul>
-        <div className="bg-white/20 w-full rounded-xl p-1">
+        <section className="bg-white/20 w-full rounded-xl p-1">
           <p className="border-black border-b-2">
             <b>STATS</b>
           </p>
@@ -102,7 +117,19 @@ const PokemonsDetail = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </section>
+        <section className="bg-white/20 w-full rounded-xl p-1">
+          <p className="border-black border-b-2">
+            <b>MOVES</b>
+          </p>
+          <ul className="flex gap-4 flex-wrap justify-between">
+            {moves.map((move: string) => (
+              <li key={move} className="list-none bg-zinc-400/20 p-2 rounded-3xl">
+                {move[0].toUpperCase() + move.slice(1)}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </>
   );

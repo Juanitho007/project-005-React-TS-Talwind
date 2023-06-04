@@ -13,7 +13,6 @@ export const getPokemonsByType = async (
         id: pokemonData.pokemon.url.split("/").at(-2),
       })
     );
-    console.log(res);
     return res;
   } catch (error) {
     throw new Error("Existe un error en la petición");
