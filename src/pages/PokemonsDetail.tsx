@@ -1,10 +1,4 @@
-import {
-  JSXElementConstructor,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-  useEffect,
-  useState,
+import {useEffect, useState,
 } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getPokemonById } from "../services/getPokemonById";
