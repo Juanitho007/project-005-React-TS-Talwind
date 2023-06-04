@@ -106,7 +106,7 @@ const PokemonsDetail = () => {
                 {stat.value}
                 <div className="max-w-full h-3 border-2 rounded-3xl">
                   <div
-                    className={`bg-red-500 h-2 max-w-full border-2 border-transparent rounded-xl text-[20px]  text-zinc-200 font-bold flex items-center text-end justify-end`}
+                    className="bg-gradient-to-r from-red-500 to-black h-2 max-w-full border-2 border-transparent rounded-xl text-[20px] text-zinc-200 font-bold flex items-center text-end justify-end"
                     style={{ width: `${stat.value}%` }}
                   >
                     {stat.value > 100 && (
